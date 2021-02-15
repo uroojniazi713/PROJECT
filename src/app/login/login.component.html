@@ -1,0 +1,17 @@
+<div class="green">
+    <div class="medium-list">
+        <div class="list-viewer-wrapped">
+            <h5 class="text-white">Please Sign in</h5>
+            <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" novalidate>
+                <div class="form-container">
+                    <input type="text" class="mt" formControlName="email" [(ngModel)]="user.email"
+                        placeholder="Enter Email" name="email" required>
+                    <input type="text" class="mt" formControlName="password" [(ngModel)]="user.password"
+                        placeholder="Enter password" name="password" required>
+                    <button mat-button type="submit" class="mat-raised-button mt" color="primary">Sign in</button>
+                    <button mat-button routerLink="/register" class="text-white margin mt">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

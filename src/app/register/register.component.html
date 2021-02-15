@@ -1,0 +1,31 @@
+<div class="green">
+    <div class="medium-list">
+        <div class="list-viewer-wrapped">
+            <h5 class="text-white">Please Sign up</h5>
+            <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onRegisterSubmit()" novalidate>
+                <div class="form-container">
+                    <input type="text" class="mt" formControlName="firstname" [(ngModel)]="user.firstname"
+                        placeholder="First Name" name="firstname" required>
+                    <input type="text" class="mt" formControlName="lastname" [(ngModel)]="user.lastname"
+                        placeholder="Last Name" name="lastname" required>
+                    <input type="text" class="mt" formControlName="email" [(ngModel)]="user.email"
+                        placeholder="Email Address" name="email" required>
+                    <div class="form-group">
+                        <select multiple class="form-control mt" id="exampleFormControlSelect2">
+                            <option>Admin</option>
+                            <option>Team Lead</option>
+                            <option>Junior Software Engineer</option>
+                            <option>Software Engineer</option>
+                            <option>Senior Software Engineer</option>
+                        </select>
+                    </div>
+                    <input type="text" class="mt" formControlName="password" [(ngModel)]="user.password"
+                        placeholder="Password" name="password" required>
+                    <button mat-button type="submit" class="mat-raised-button mat-primary mt" color="primary">Sign
+                        Up</button>
+                   <button mat-button routerLink="/login" class="text-white margin mt">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

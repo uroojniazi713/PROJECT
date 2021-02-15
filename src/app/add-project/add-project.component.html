@@ -1,0 +1,44 @@
+<div class="green">
+    <h3 class="text-white ml-5">Add Project</h3>
+    <div class="border bg-white ml-5 mr-5 rounded">
+        <form [formGroup]="AddProjectForm">
+            <div class="form-container">
+                <label class="ml-3 mt-2">Title</label>
+                <input type="text" class="ml-3 mr-3 p-2" formControlName="title" [(ngModel)]="user.title"
+                    placeholder="Project Name" name="title" required>
+                <label class="ml-3 mt-3">Description</label>
+                <textarea class="form-control margin" id="exampleFormControlTextarea1" formControlName="discription"
+                    [(ngModel)]="user.discription" rows="3"></textarea>
+                <label class="ml-3 mt-3" for="inlineFormCustomSelect">Team Lead</label>
+                <select class="custom-select margin" id="inlineFormCustomSelect" formControlName="teamlead"
+                    [(ngModel)]="user.teamlead" name="teamlead">
+                    <option selected>Iqbal Mehmoood</option>
+                    <option value="1">Iqbal Mehmoood</option>
+                    <option value="2">Iqbal Mehmoood</option>
+                    <option value="3">Iqbal Mehmoood</option>
+                </select>
+                <label class="mt-3 ml-3">Members</label>
+                <div class="form-group ml-3 mr-3">
+                    <select multiple class="form-control mt" id="exampleFormControlSelect2">
+                        <option>Admin</option>
+                        <option>Team Lead</option>
+                        <option>Junior Software Engineer</option>
+                        <option>Software Engineer</option>
+                        <option>Senior Software Engineer</option>
+                    </select>
+                </div>
+                <label class="ml-3">Documents</label>
+                <form action="/action_page.php">
+                    <label for="myfile" class="ml-3"></label>
+                    <input type="file" id="myfile" name="myfile">
+                  </form>
+                  <form action="/action_page.php" class="mt-2">
+                    <label for="myfile" class="ml-3"></label>
+                    <input type="file" id="myfile" name="myfile">
+                    <button routerLink="/project-board" class="btn btn-primary text-white float-right mt-5 mr-3"> Submit</button>
+                    <button class="btn btn-light text-primary float-right mt-5 mr-3">Cancel</button>
+                  </form>
+            </div>
+        </form>
+    </div>
+</div>
