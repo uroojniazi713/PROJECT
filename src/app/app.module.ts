@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,10 @@ import { ProjectBoardComponent } from './project-board/project-board.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { AddNewTaskComponent } from './add-new-task/add-new-task.component';
 import { AddSecondTaskComponent } from './add-second-task/add-second-task.component';
+import { DetailTaskComponent } from './detail-task/detail-task.component';
+import { UsersComponent } from './users/users.component';
+import { MyserviceService } from './myservice.service';
+
 
 @NgModule({
   declarations: [
@@ -29,16 +34,19 @@ import { AddSecondTaskComponent } from './add-second-task/add-second-task.compon
     ProjectBoardComponent,
     NewTaskComponent,
     AddNewTaskComponent,
-    AddSecondTaskComponent
+    AddSecondTaskComponent,
+    DetailTaskComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

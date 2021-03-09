@@ -1,55 +1,68 @@
 <div class="green">
-    <div class="medium-list w-100">
-        <ul class="list-inline m-0">
-          <li class="list-inline-item text-white"><h1>Projects</h1></li>
-          <li class="list-inline-item float-right text-primary font-weight-bold"><a href="add-project">Add New Project</a></li>
-          </ul>
-        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-light text-dark"> # </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-light text-dark"> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-light text-dark"> Description </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="Documents">
-      <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-light text-dark"> Documents </mat-header-cell>
-      <mat-cell *matCellDef="let element" class="text-primary"> {{element.Documents}} </mat-cell>
-    </ng-container>
+  <div class="medium-list w-100">
+    <ul class="list-inline m-0">
+      <li class="list-inline-item text-white">
+        <h1>Projects</h1>
+      </li>
+      <li class="list-inline-item float-right text-primary font-weight-bold"><a href="add-project">Add New Project</a>
+      </li>
+    </ul>
+    <table class="bg-white w-100">
+      <thead>
+        <tr class="bg-grey">
+          <th class="p-3">
+            #
+          </th>
+          <th class="p-3">
+            Name
+          </th>
+          <th class="p-3">
+            Description
+          </th>
+          <th class="p-3">
+            Documents
+          </th>
+          <th class="p-3">
+            Teamlead
+          </th>
+          <th class="p-3">
+            Members
+          </th>
+          <th>
 
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="TeamLead">
-        <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-light text-dark"> Team Lead </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.TeamLead}} </mat-cell>
-      </ng-container>
-  
-       <!-- Symbol Column -->
-       <ng-container matColumnDef="Members">
-        <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-light text-dark"> Members </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Members}} </mat-cell>
-      </ng-container>
+          </th>
+          <th>
 
-      
-       <!-- Symbol Column -->
-       <ng-container matColumnDef="icon">
-        <mat-header-cell *matHeaderCellDef class="bg-light"></mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.icon}} </mat-cell>
-      </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows  ; let i = index;" class="border-bottom">
+          <td class="p-3">
+            {{i+1}}
+          </td>
+          <td class="p-3">
+            {{row.title}}
+          </td>
+          <td class="p-3">
+            {{row.description}}
+          </td>
+          <td class="p-3 text-primary">
+            {{row.documents}}
+          </td>
+          <td class="p-3">
+            {{row.teamlead}}
+          </td>
+          <td class="p-3">
+            {{row.members}}
+          </td>
+          <td>
+            <button class="btn" (click)="onEdit(row)"><i class="fa fa-eye text-primary"></i></button>
+          </td>
+          <td>
+            <button class="btn" (click)="deleteproject(row)"><i class="fa fa-trash text-primary"></i></button>
+          </td>
+        </tr>
+    </table>
+  </div>
 </div>

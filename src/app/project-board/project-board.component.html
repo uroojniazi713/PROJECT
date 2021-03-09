@@ -8,162 +8,24 @@
                     Task</a></li>
         </ul>
         <div class="row">
-            <div class="col-4">
-                <mat-card class="bg-light mt-2">
+            <div *ngFor="let status of statusArr" class="col-4">
+                <mat-card class="bg-grey mt-2">
                     <mat-card-header>
                         <mat-card-title>
-                            <h3 class="m-0 font-weight-bold">New</h3>
+                            <h3 class="m-0 font-weight-bold">{{status}}</h3>
                         </mat-card-title>
                     </mat-card-header>
-                    <div class="border bg-white">
+                    <div *ngFor="let project of projects[status]" class="border bg-white">
                         <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Front End Development...</h6>
+                            <h6 class="ml-2 font-weight-bold">{{project.description}}</h6>
                         </mat-card-content>
                         <mat-card-actions>
                             <ul class="list-inline">
                                 <li>
-                                    <h6 class="float-right mr-3 font-weight-bold">Saqib Dogar</h6>
+                                    <h6 class="float-right mr-3 font-weight-bold">{{project.teamlead}}</h6>
                                 </li>
                                 <li>
                                     <mat-icon class="float-right">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Learning of front aweso...</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <h6 class="float-right mr-3 font-weight-bold">Saqib Dogar</h6>
-                                </li>
-                                <li>
-                                    <mat-icon class="float-right">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col-4">
-                <mat-card class="bg-light mt-2">
-                    <mat-card-header>
-                        <mat-card-title>
-                            <h3 class="m-0 font-weight-bold">In Progress</h3>
-                        </mat-card-title>
-                    </mat-card-header>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Front End Developmen...</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <h6 class="float-right mr-3 font-weight-bold">Saqib Dogar</h6>
-                                </li>
-                                <li>
-                                    <mat-icon class="float-right">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Learning of front aweso..</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <h6 class="float-right mr-3 font-weight-bold">Saqib Dogar</h6>
-                                </li>
-                                <li>
-                                    <mat-icon class="float-right">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col-4">
-                <mat-card class="bg-light mt-2">
-                    <mat-card-header>
-                        <mat-card-title>
-                            <h3 class="m-0 font-weight-bold">Done</h3>
-                        </mat-card-title>
-                    </mat-card-header>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Setup layout</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <h6 class="float-right mr-3 font-weight-bold">Saqib Dogar</h6>
-                                </li>
-                                <li>
-                                    <mat-icon class="float-right">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Brainstroaming assign...</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <h6 class="float-right mr-3 font-weight-bold">Saqib Dogar</h6>
-                                </li>
-                                <li>
-                                    <mat-icon class="float-right">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="col-4 mt-2">
-                <mat-card class="bg-light mt-2">
-                    <mat-card-header>
-                        <mat-card-title>
-                            <h3 class="m-0 font-weight-bold">Backlog</h3>
-                        </mat-card-title>
-                    </mat-card-header>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Learning of ES6 task</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <mat-icon class="float-right mr-3">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Learning of javaScript...</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <mat-icon class="float-right mr-3">person</mat-icon>
-                                </li>
-                            </ul>
-                        </mat-card-actions>
-                    </div>
-                    <div class="border bg-white">
-                        <mat-card-content>
-                            <h6 class="ml-2 font-weight-bold">Learning of twitter bo...</h6>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <ul class="list-inline">
-                                <li>
-                                    <mat-icon class="float-right mr-3">person</mat-icon>
                                 </li>
                             </ul>
                         </mat-card-actions>

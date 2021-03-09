@@ -1,43 +1,59 @@
 <div class="green">
     <h3 class="text-white ml-5">Add Project</h3>
     <div class="border bg-white ml-5 mr-5 rounded">
-        <form [formGroup]="AddProjectForm">
+        <form [formGroup]="AddProjectForm" action="#">
             <div class="form-container">
                 <label class="ml-3 mt-2">Title</label>
-                <input type="text" class="ml-3 mr-3 p-2" formControlName="title" [(ngModel)]="user.title"
+                <input type="text" class="form-control ml-3 mr-3 p-2 margin" formControlName="title"
                     placeholder="Project Name" name="title" required>
-                <label class="ml-3 mt-3">Description</label>
-                <textarea class="form-control margin" id="exampleFormControlTextarea1" formControlName="discription"
-                    [(ngModel)]="user.discription" rows="3"></textarea>
+                <label class="ml-3 mt-2">Discription</label>
+                <textarea type="text" class="form-control ml-3 mr-3 p-2 margin" formControlName="description"
+                    name="description" required></textarea>
                 <label class="ml-3 mt-3" for="inlineFormCustomSelect">Team Lead</label>
-                <select class="custom-select margin" id="inlineFormCustomSelect" formControlName="teamlead"
-                    [(ngModel)]="user.teamlead" name="teamlead">
+                <select class="custom-select form-control margin" size="1" id="inlineFormCustomSelect"
+                    formControlName="teamlead" name="teamlead" required>
                     <option selected>Iqbal Mehmoood</option>
-                    <option value="1">Iqbal Mehmoood</option>
-                    <option value="2">Iqbal Mehmoood</option>
-                    <option value="3">Iqbal Mehmoood</option>
+                    <option value="Kabir Sagheer">Kabir Sagheer</option>
+                    <option value="Salman Khan">Salman Khan</option>
+                    <option value="Saqib Dogar">Saqib Dogar</option>
                 </select>
-                <label class="mt-3 ml-3">Members</label>
-                <div class="form-group ml-3 mr-3">
-                    <select multiple class="form-control mt" id="exampleFormControlSelect2">
-                        <option>Admin</option>
-                        <option>Team Lead</option>
-                        <option>Junior Software Engineer</option>
-                        <option>Software Engineer</option>
-                        <option>Senior Software Engineer</option>
-                    </select>
+                <label class="ml-3 mt-3" for="inlineFormCustomSelect">Status</label>
+                <select class="custom-select form-control margin" size="1" id="inlineFormCustomSelect"
+                    formControlName="status" name="status">
+                    <option selected>New</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Done">Done</option>
+                    <option value="Backlog">Backlog</option>
+                </select>
+                <label class="ml-3 mt-3" for="inlineFormCustomSelect">Members</label>
+                <select class="custom-select margin" size="4" id="inlineFormCustomSelect" formControlName="members"
+                    name="members">
+                    <option selected>Iqbal Mehmoood</option>
+                    <option value="Salman Khan">Salman Khan</option>
+                    <option value="Saqib Dogar">Saqib Dogar</option>
+                    <option value="Kabir Sagheer">Kabir Sagheer</option>
+                </select>
+                <label class="ml-3 mt-2">Documents</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text upload"  (click)="upload()"  id="btnUpload">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <form action="/api/upload" method="post" enctype="multipart/form-data">
+                                <input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01" name="documents" formControlName="documents" aria-describedby="inputGroupFileAddon01">
+                            </form>
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        </div>
+                    </div>
                 </div>
-                <label class="ml-3">Documents</label>
-                <form action="/action_page.php">
-                    <label for="myfile" class="ml-3"></label>
-                    <input type="file" id="myfile" name="myfile">
-                  </form>
-                  <form action="/action_page.php" class="mt-2">
-                    <label for="myfile" class="ml-3"></label>
-                    <input type="file" id="myfile" name="myfile">
-                    <button routerLink="/project-board" class="btn btn-primary text-white float-right mt-5 mr-3"> Submit</button>
-                    <button class="btn btn-light text-primary float-right mt-5 mr-3">Cancel</button>
-                  </form>
+                <ul class="list-inline ">
+                    <li class="list-inline-item float-right"><button (click)="save()"
+                            class="btn btn-primary text-white float-right mr-3"><a href="Home" class="text-white">Submit</a></button></li>
+                    <li class="list-inline-item float-right">
+                        <button class="btn btn-light text-primary float-right mr-3">Cancel</button>
+                    </li>
+                </ul>
             </div>
         </form>
     </div>

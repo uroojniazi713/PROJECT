@@ -1,0 +1,44 @@
+<div class="green">
+  <div class="medium-list w-100">
+    <ul class="list-inline m-0">
+      <li class="list-inline-item text-white">
+        <h1>Users</h1>
+      </li>
+    </ul>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-grey text-dark"> # </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+
+      <!-- FirstName Column -->
+      <ng-container matColumnDef="firstname">
+        <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-grey text-dark"> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.firstname}} </mat-cell>
+      </ng-container>
+
+      <!-- LastName Column -->
+      <ng-container matColumnDef="lastname">
+        <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-grey text-dark"> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
+      </ng-container>
+
+      <!-- UserName Column -->
+      <ng-container matColumnDef="Username">
+        <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-grey text-dark"> Username </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Username}} </mat-cell>
+      </ng-container>
+
+      <!-- Role Column -->
+      <ng-container matColumnDef="Role">
+        <mat-header-cell *matHeaderCellDef class="font-weight-bold bg-grey text-dark"> Role </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Role}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

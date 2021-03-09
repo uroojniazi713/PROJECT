@@ -1,5 +1,9 @@
 export class  AddProjectModel{
-    title!: string;
+  position: number | undefined
+  title!: string;
+  description: string | undefined;
+    documents: string | undefined;
     teamlead: string | undefined;
-    discription: string | undefined;
+    status: string | undefined;
+  members: string | undefined;
 }

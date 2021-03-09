@@ -1,3 +1,5 @@
+import { UsersComponent } from './users/users.component';
+import { DetailTaskComponent } from './detail-task/detail-task.component';
 import { AddSecondTaskComponent } from './add-second-task/add-second-task.component';
 import { AddNewTaskComponent } from './add-new-task/add-new-task.component';
 import { ProjectBoardComponent } from './project-board/project-board.component';
@@ -44,6 +46,14 @@ const routes: Routes = [{
   path: 'add-second-task',
   component: AddSecondTaskComponent
 },
+{
+  path: 'detail-task',
+  component: DetailTaskComponent
+},
+{
+  path: 'users',
+  component: UsersComponent
+}
 
 ];
 @NgModule({

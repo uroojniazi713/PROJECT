@@ -1,32 +1,58 @@
-import { devOnlyGuardedExpression } from '@angular/compiler';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { MyserviceService } from '../myservice.service';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  description: string;
-  Documents: string;
-  TeamLead:string;
-  Members:string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'xyz', description: 'Project xyz', Documents: 'etc.pdf,etc.doc',TeamLead:'Salman Khan',Members:'Saqib Doger,Kabir Sagheet'},
-  {position: 1, name: 'xyz', description: 'Project xyz', Documents: 'etc.pdf,etc.doc',TeamLead:'Salman Khan',Members:'Saqib Doger,Kabir Sagheet'},
-  {position: 1, name: 'xyz', description: 'Project xyz', Documents: 'etc.pdf,etc.doc',TeamLead:'Salman Khan',Members:'Saqib Doger,Kabir Sagheet'},
-  {position: 1, name: 'xyz', description: 'Project xyz', Documents: 'etc.pdf,etc.doc,etc.ppt',TeamLead:'Salman Khan',Members:'Saqib Doger,Kabir Sagheet'},
-];
 @Component({
   selector: 'app-Home',
   templateUrl: './Home.component.html',
   styleUrls: ['./Home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'description', 'Documents','TeamLead','Members','icon'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  AddProjectForm = new FormGroup({
+    title: new FormControl(),
+    description: new FormControl(),
+    documents: new FormControl(),
+    teamlead: new FormControl(),
+    status: new FormControl(),
+    members: new FormControl(),
+  });
+
+  rows: any = [];
+  isUpdate = false;
+  rowId = null;
+
+  constructor(private myserviceService: MyserviceService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getproject();
   }
 
+deleteproject(event: any) {
+  const index = this.rows.indexOf(event);
+  this.rows.splice(index, 1);
+  console.log(event);
+  this.myserviceService.deleteproject(event._id).subscribe(() => {
+    this.getproject();
+  });
+}
+
+  getproject(): void {
+    this.myserviceService.getproject().subscribe(
+      (response: any) => {
+        this.rows = response.body;
+      },
+      (err: any) => {
+        console.log('==err==', err);
+      }
+    );
+  }
+
+  onEdit(row: any): void {
+    console.log(row);
+    this.isUpdate = true;
+    this.rowId = row._id;
+    this.router.navigateByUrl('/add-project?id=' + row._id);
+  }
 }
